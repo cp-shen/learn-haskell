@@ -1,6 +1,7 @@
 module Main (main) where
 
-import Lib
+import Chapter9 (todoApp)
+import Lib ()
 
 main :: IO ()
-main = someFunc
+main = todoApp
