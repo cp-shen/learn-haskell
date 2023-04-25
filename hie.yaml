@@ -1,0 +1,13 @@
+cradle:
+  cabal:
+    - path: "src"
+      component: "lib:learn-haskell"
+
+    - path: "app/Main.hs"
+      component: "learn-haskell:exe:learn-haskell-exe"
+
+    - path: "app/Paths_learn_haskell.hs"
+      component: "learn-haskell:exe:learn-haskell-exe"
+
+    - path: "test"
+      component: "learn-haskell:test:learn-haskell-test"
