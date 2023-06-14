@@ -3,7 +3,7 @@
 {-# OPTIONS_GHC -Wno-type-defaults #-}
 
 -- | Chapter 9: Input and Output
-module Chapter9
+module Chapter09
   ( showShortLines,
     respondPalindromes,
     printFile,
