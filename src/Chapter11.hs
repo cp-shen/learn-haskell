@@ -1,6 +1,6 @@
 {-# LANGUAGE InstanceSigs #-}
 
-module Chapter11 (main1, main2, computeThenPrint) where
+module Chapter11 (main1, main2, computeThenPrint, myAction) where
 
 import Data.Char (toUpper)
 import Data.List (intersperse)
@@ -18,12 +18,16 @@ main2 = do
 computeThenPrint :: Integer -> String
 computeThenPrint = fmap (show . (* 3)) (+ 100)
 
--- |Let's take a look at a pathological example of a type constructor 
--- being an instance of the Functor typeclass but not really being a functor,
--- because it doesn't satisfy the laws.
+{- |Let's take a look at a pathological example of a type constructor
+ being an instance of the Functor typeclass but not really being a functor,
+ because it doesn't satisfy the laws.
+-}
 data CMaybe a = CNothing | CJust Int a deriving (Show)
 
 instance Functor CMaybe where
   fmap :: (a -> b) -> CMaybe a -> CMaybe b
   fmap _ CNothing = CNothing
   fmap f (CJust counter x) = CJust (counter + 1) (f x)
+
+myAction :: IO [Char]
+myAction = (++) <$> getLine <*> getLine
